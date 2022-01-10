@@ -8,12 +8,12 @@ var today = moment().format("MMM Do, YYYY");
 var apiKey = "b3cc49f19c3c941f8b66e1efd8c739ca";
 // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 
-function searchCity(event, currentCity) {
+function searchCity(event) {
     event.preventDefault(); 
-    // var currentCity = cityInput.value;
+    var currentCity = cityInput.value;
     citySelected.textContent = currentCity + " (" + today + ")"; 
 
-    var queryUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + currentCity + "&appid=" + apiKey; 
+    var queryUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + cityInput.value + "&appid=" + apiKey; 
     fetch(queryUrl) 
         .then(response => response.json())
         .then(data => {
@@ -38,13 +38,12 @@ function searchCity(event, currentCity) {
         var cityStored = document.createElement("button");
         cityStored.textContent = searchedCity;
         searchedCityBox.appendChild(cityStored);
-        cityStored.addEventListener('click', function() {searchCity(event,currentCity);});
     }
     setHistory(); 
 }
 
 // event listener for clicking on "search"
-searchButton.addEventListener('click', function() {searchCity(event,cityInput.value);});
+searchButton.addEventListener('click', searchCity);
 
 // if (cityStored.addEventListener('click') {
 //     cityInput = cityStored.value;
@@ -53,7 +52,7 @@ searchButton.addEventListener('click', function() {searchCity(event,cityInput.va
 
 
 
-
+// cityStored.addEventListener('click', function() {searchCity(event,currentCity);});
 
 
 
