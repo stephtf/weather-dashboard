@@ -5,7 +5,12 @@ var searchButton = document.getElementById("button-one");
 var searchedCityBox = document.getElementById("searched-cities");
 var today = moment().format("MM/DD/YYYY");
 
-
+// cards 
+var day1 = document.getElementById("card-one");
+var day2 = document.getElementById("card-two");
+var day3 = document.getElementById("card-three");
+var day4 = document.getElementById("card-four");
+var day5 = document.getElementById("card-five");
 
 var apiKey = "b3cc49f19c3c941f8b66e1efd8c739ca";
 // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
@@ -44,25 +49,13 @@ function searchCity(event) {
     .then(data => {
             console.log(data);
 
-// cards 
-var day1 = document.getElementById("card-one");
-var day2 = document.getElementById("card-two");
-var day3 = document.getElementById("card-three");
-var day4 = document.getElementById("card-four");
-var day5 = document.getElementById("card-five");
 
-// days for 5 day forecast
+day1.innerHTML = "";
+
 var tomorrow = moment().add(1, 'days').format("MM/DD/YYYY");
-day1.textContent = tomorrow; 
-var twodays = moment().add(2, 'days').format("MM/DD/YYYY");
-day2.textContent = twodays;
-var threedays = moment().add(3, 'days').format("MM/DD/YYYY");
-day3.textContent = threedays;
-var fourdays = moment().add(4, 'days').format("MM/DD/YYYY");
-day4.textContent = fourdays;
-var fivedays = moment().add(5, 'days').format("MM/DD/YYYY");
-day5.textContent = fivedays;
-
+var date1 = document.createElement("h3");
+date1.textContent = tomorrow;
+day1.appendChild(date1); 
 
 for (i = 0; i < 3; i++) {
     let dataTag = document.createElement("li");
@@ -74,6 +67,13 @@ for (i = 0; i < 3; i++) {
     day1.appendChild(dataTag);
     }
 
+day2.innerHTML = "";
+
+var twodays = moment().add(2, 'days').format("MM/DD/YYYY");
+var date2 = document.createElement("h3");
+date2.textContent = twodays;
+day2.appendChild(date2); 
+
 for (i = 0; i < 3; i++) {
     let dataTag = document.createElement("li");
     let keyNames = [data.list[12].main.temp, data.list[12].wind.speed, data.list[12].main.humidity];
@@ -83,6 +83,13 @@ for (i = 0; i < 3; i++) {
     dataTag.textContent = key[i] + keyValue + unit[i];  
     day2.appendChild(dataTag);
     }
+
+day3.innerHTML = "";
+
+var threedays = moment().add(3, 'days').format("MM/DD/YYYY");
+var date3 = document.createElement("h3");
+date3.textContent = threedays;
+day3.appendChild(date3); 
 
 for (i = 0; i < 3; i++) {
     let dataTag = document.createElement("li");
@@ -94,6 +101,13 @@ for (i = 0; i < 3; i++) {
     day3.appendChild(dataTag);
     }
 
+day4.innerHTML = "";
+
+var fourdays = moment().add(4, 'days').format("MM/DD/YYYY");
+var date4 = document.createElement("h3");
+date4.textContent = fourdays;
+day4.appendChild(date4); 
+
 for (i = 0; i < 3; i++) {
     let dataTag = document.createElement("li");
     let keyNames = [data.list[28].main.temp, data.list[28].wind.speed, data.list[28].main.humidity];
@@ -103,6 +117,13 @@ for (i = 0; i < 3; i++) {
     dataTag.textContent = key[i] + keyValue + unit[i];  
     day4.appendChild(dataTag);
     }
+
+day5.innerHTML = "";
+
+var fivedays = moment().add(5, 'days').format("MM/DD/YYYY");
+var date5 = document.createElement("h3");
+date5.textContent = fivedays;
+day5.appendChild(date5);
 
 for (i = 0; i < 3; i++) {
     let dataTag = document.createElement("li");
