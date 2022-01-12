@@ -20,7 +20,7 @@ function searchCity(event) {
     var currentCity = cityInput.value;
     citySelected.textContent = currentCity + " (" + today + ")"; 
 
-    var queryUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + cityInput.value + "&units=imperial&appid=" + apiKey; 
+    var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput.value + "&units=imperial&appid=" + apiKey; 
     fetch(queryUrl) 
         .then(response => response.json())
         .then(data => {
@@ -134,14 +134,9 @@ for (i = 0; i < 3; i++) {
     dataTag.textContent = key[i] + keyValue + unit[i];  
     day5.appendChild(dataTag);
     }
-
-
-
     })
 }
-        
-     
-
+             
     function setHistory() {
         localStorage.setItem('City', currentCity); 
         var searchedCity = localStorage.getItem('City');
@@ -160,6 +155,7 @@ for (i = 0; i < 3; i++) {
 searchButton.addEventListener('click', searchCity);
 
 
+// getting the searched cities to also run the searchCity function 
 
    
 
