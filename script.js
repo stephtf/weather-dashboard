@@ -3,7 +3,8 @@ var citySelected = document.getElementById("city-name")
 var cityInfoBox = document.getElementById("city-info"); 
 var searchButton = document.getElementById("button-one");
 var searchedCityBox = document.getElementById("searched-cities");
-var today = moment().format("MMM Do, YYYY");
+var today = moment().format("MM/DD/YYYY");
+
 
 
 var apiKey = "b3cc49f19c3c941f8b66e1efd8c739ca";
@@ -43,11 +44,6 @@ function searchCity(event) {
     .then(data => {
             console.log(data);
 
-        // for (k = 0; k < 5; k++) {
-        //     var day = [4, 12, 20, 28, 36]; 
-
-        //     var fiveData = [data.list[day[k]].main.temp, data.list[day[k]].wind.speed, data.list[day[k]].main.humidity];
-
 // cards 
 var day1 = document.getElementById("card-one");
 var day2 = document.getElementById("card-two");
@@ -55,30 +51,46 @@ var day3 = document.getElementById("card-three");
 var day4 = document.getElementById("card-four");
 var day5 = document.getElementById("card-five");
 
+// days for 5 day forecast
+var tomorrow = moment().add(1, 'days').format("MM/DD/YYYY");
+console.log(tomorrow); 
+day1.textContent = tomorrow; 
+var twodays = moment().add(2, 'days').format("MM/DD/YYYY");
+console.log(tomorrow); 
+var threedays = moment().add(3, 'days').format("MM/DD/YYYY");
+console.log(tomorrow); 
+var fourdays = moment().add(4, 'days').format("MM/DD/YYYY");
+console.log(tomorrow); 
+var fivedays = moment().add(5, 'days').format("MM/DD/YYYY");
+console.log(tomorrow); 
+
 // card data 
-let oneData = [data.list[4].main.temp, data.list[4].wind.speed, data.list[4].main.humidity];
+// let oneData = 
 
-let twoData = [data.list[12].main.temp, data.list[12].wind.speed, data.list[12].main.humidity];
+// let twoData = [data.list[12].main.temp, data.list[12].wind.speed, data.list[12].main.humidity];
 
-let threeData = [data.list[20].main.temp, data.list[20].wind.speed, data.list[20].main.humidity];
+// let threeData = [data.list[20].main.temp, data.list[20].wind.speed, data.list[20].main.humidity];
 
-let fourData = [data.list[28].main.temp, data.list[28].wind.speed, data.list[28].main.humidity];
+// let fourData = [data.list[28].main.temp, data.list[28].wind.speed, data.list[28].main.humidity];
 
-let fiveData = [data.list[36].main.temp, data.list[36].wind.speed, data.list[36].main.humidity];
+// let fiveData = [data.list[36].main.temp, data.list[36].wind.speed, data.list[36].main.humidity];
 
-// arrays of cards and data 
-let dayArrayEl = [day1, day2, day3, day4, day5];
-let dataArray = [oneData, twoData, threeData, fourData, fiveData]; 
+for (i = 0; i < 3; i++) {
+    let dataTag = document.createElement("li");
+    let keyNamesOne = [data.list[4].main.temp, data.list[4].wind.speed, data.list[4].main.humidity];
+    keyValue = keyNamesOne[i];
+    let key = ["Temp: ", "Wind: ", "Humidity: "];
+    let unit = [" °F", " MPH", "%"]
+    dataTag.textContent = key[i] + keyValue + unit[i];  
+    day1.appendChild(dataTag);
+    }
 
-        for (j = 0; j < 5; j++) {
-            cardEl = document.createElement("li");
-            cardEl.textContent = dataArray[j];
-            dayArrayEl[j].appendChild(cardEl);
-        }
-        }
-    );
+
+
+    })
 }
-
+        
+     
 
     function setHistory() {
         localStorage.setItem('City', currentCity); 
