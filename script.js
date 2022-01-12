@@ -53,36 +53,65 @@ var day5 = document.getElementById("card-five");
 
 // days for 5 day forecast
 var tomorrow = moment().add(1, 'days').format("MM/DD/YYYY");
-console.log(tomorrow); 
 day1.textContent = tomorrow; 
 var twodays = moment().add(2, 'days').format("MM/DD/YYYY");
-console.log(tomorrow); 
+day2.textContent = twodays;
 var threedays = moment().add(3, 'days').format("MM/DD/YYYY");
-console.log(tomorrow); 
+day3.textContent = threedays;
 var fourdays = moment().add(4, 'days').format("MM/DD/YYYY");
-console.log(tomorrow); 
+day4.textContent = fourdays;
 var fivedays = moment().add(5, 'days').format("MM/DD/YYYY");
-console.log(tomorrow); 
+day5.textContent = fivedays;
 
-// card data 
-// let oneData = 
-
-// let twoData = [data.list[12].main.temp, data.list[12].wind.speed, data.list[12].main.humidity];
-
-// let threeData = [data.list[20].main.temp, data.list[20].wind.speed, data.list[20].main.humidity];
-
-// let fourData = [data.list[28].main.temp, data.list[28].wind.speed, data.list[28].main.humidity];
-
-// let fiveData = [data.list[36].main.temp, data.list[36].wind.speed, data.list[36].main.humidity];
 
 for (i = 0; i < 3; i++) {
     let dataTag = document.createElement("li");
-    let keyNamesOne = [data.list[4].main.temp, data.list[4].wind.speed, data.list[4].main.humidity];
-    keyValue = keyNamesOne[i];
+    let keyNames = [data.list[4].main.temp, data.list[4].wind.speed, data.list[4].main.humidity];
+    keyValue = keyNames[i];
     let key = ["Temp: ", "Wind: ", "Humidity: "];
     let unit = [" °F", " MPH", "%"]
     dataTag.textContent = key[i] + keyValue + unit[i];  
     day1.appendChild(dataTag);
+    }
+
+for (i = 0; i < 3; i++) {
+    let dataTag = document.createElement("li");
+    let keyNames = [data.list[12].main.temp, data.list[12].wind.speed, data.list[12].main.humidity];
+    keyValue = keyNames[i];
+    let key = ["Temp: ", "Wind: ", "Humidity: "];
+    let unit = [" °F", " MPH", "%"]
+    dataTag.textContent = key[i] + keyValue + unit[i];  
+    day2.appendChild(dataTag);
+    }
+
+for (i = 0; i < 3; i++) {
+    let dataTag = document.createElement("li");
+    let keyNames = [data.list[20].main.temp, data.list[20].wind.speed, data.list[20].main.humidity];
+    keyValue = keyNames[i];
+    let key = ["Temp: ", "Wind: ", "Humidity: "];
+    let unit = [" °F", " MPH", "%"]
+    dataTag.textContent = key[i] + keyValue + unit[i];  
+    day3.appendChild(dataTag);
+    }
+
+for (i = 0; i < 3; i++) {
+    let dataTag = document.createElement("li");
+    let keyNames = [data.list[28].main.temp, data.list[28].wind.speed, data.list[28].main.humidity];
+    keyValue = keyNames[i];
+    let key = ["Temp: ", "Wind: ", "Humidity: "];
+    let unit = [" °F", " MPH", "%"]
+    dataTag.textContent = key[i] + keyValue + unit[i];  
+    day4.appendChild(dataTag);
+    }
+
+for (i = 0; i < 3; i++) {
+    let dataTag = document.createElement("li");
+    let keyNames = [data.list[36].main.temp, data.list[36].wind.speed, data.list[36].main.humidity];
+    keyValue = keyNames[i];
+    let key = ["Temp: ", "Wind: ", "Humidity: "];
+    let unit = [" °F", " MPH", "%"]
+    dataTag.textContent = key[i] + keyValue + unit[i];  
+    day5.appendChild(dataTag);
     }
 
 
