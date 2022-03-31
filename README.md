@@ -3,7 +3,7 @@
 ## Description 
 Weather dashboard allows users to search current and future weather conditions of any city in the world. Simply enter a city name into the search engine. Then the user is presented with that city's name, the current date, and the weather conditions. Weather conditions include temperature, wind, and humidity. The user is also presented with future weather conditions with a five-day forecast. 
 
-## Screenshot: 
+## Screenshot
 ![GettingStarted](./screenshot.png)
 
 ## Link 
